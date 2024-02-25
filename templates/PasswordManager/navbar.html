@@ -1,0 +1,16 @@
+{% load static %}
+<nav class="navbar bg-dark navbar-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <div class="container-fluid d-flex justify-content-between">
+      <div>
+          <a class="navbar-brand" href="{% url 'login-home' %}">
+              <img src="{% static 'admin/img/padlock.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+              PassVolt
+          </a>
+      </div>
+      <form class="container-fluid d-flex justify-content-end">
+        <a href="{% url 'login' %}"><button class="btn btn-outline-success me-2" type="button">Login</button></a>
+        <a href="{% url 'signup' %}"><button class="btn btn-outline-secondary me-2" type="button">signup</button></a>
+      </form>
+  </div>
+</nav>

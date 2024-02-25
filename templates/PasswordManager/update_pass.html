@@ -1,0 +1,66 @@
+{% extends "PasswordManager/baselogin.html" %}
+{% block Style %}
+
+.custom-container {
+    margin-top: 50px;
+}
+
+.custom-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.custom-form .input-group-text {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.custom-form .form-control {
+    border-color: #007bff;
+}
+.big_text{
+    font-size: 3rem;
+}
+
+{% endblock Style %}
+{% block content %}
+<div class="container custom-container">
+    <div class="container d-flex justify-content-center align-items-center mt-4">
+        <b class="big_text">Update Password</b>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="custom-form">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" name="Username" placeholder="Username" aria-label="Username" value="{{data.Username}}"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="basic-url" class="form-label">Site URL</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon3">https://example.com</span>
+                            <input type="text" class="form-control" name="url" id="basic-url" value="{{data.Url}}"
+                                aria-describedby="basic-addon3 basic-addon4">
+                        </div>
+                        <div class="form-text" id="basic-addon4">Enter the site url</div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="Password" id="exampleInputPassword1" value="{{data.Password}}" placeholder="Password">
+                        <div class="form-text mt-1">Enter the password</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
