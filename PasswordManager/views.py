@@ -31,7 +31,7 @@ def Ulogin(request):
         if user is not None:
             login(request, user)
             return redirect(reverse("login-home"))
-    return render(request, "Passwordmanager/login.html")
+    return render(request, "PasswordManager/login.html")
 
 @login_required(login_url='/login')
 def after_login(request):
