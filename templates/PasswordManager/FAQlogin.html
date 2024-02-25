@@ -1,0 +1,232 @@
+{% extends "PasswordManager/baselogin.html" %} 
+{% block Style %}
+.faq-item-hide {
+    display: none;
+}
+
+.faq-heading {
+  font-family: Montserrat;
+  padding-top: 15px;
+  font-weight: 600;
+  font-size: 19px;
+  text-indent: 10px;
+  color: #041D5C;
+  transition: text-indent 0.2s;
+}
+
+.faq-text {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  color: #111;
+  padding-left: 20px;
+  padding-right: 100px;
+  margin-bottom: 20px;
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 0.6s ease-in-out; /* Transição de opacidade */
+}
+
+.faq {
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 4px;
+  position: relative;
+ /* border: 1px, solid #E1E1E1*/;
+}
+
+.faq label {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  height: 50px; /* Ajustar conforme necessário */
+  padding-top: 8px;
+  padding-bottom: 10px;
+  background-color: #EDF0EF;
+  border-bottom: 1px solid #fff;
+  transition: all 0.3s ease; /* Suaviza a transição da borda */
+  box-sizing: border-box; /* Garante que a borda seja incluída no cálculo da dimensão */
+}
+
+.faq input[type="checkbox"] {
+  display: none;
+}
+
+.faq .faq-arrow {
+  width: 10px;
+  height: 10px;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-top: 2px solid #041D5C;
+  border-right: 2px solid #041D5C;
+  float: right;
+  position: relative;
+  top: -30px;
+  right: 27px;
+  transform: rotate(45deg);
+}
+
+.faq input[type="checkbox"]:checked + label > .faq-arrow {
+  transform: rotate(135deg);
+}
+
+.faq input[type="checkbox"]:checked + label {
+  /*background: #;*/
+  color: #041D5C;
+  height: auto; /* Altura ajustada para conteúdo */
+  transition: height 0.8s, border 0.3s ease; /* Adiciona transição para borda */
+  padding-top: 0; /* Ajusta o padding */
+}
+
+.faq input[type='checkbox']:not(:checked) + label {
+  height: 70px;/* Altura quando não checado */
+}
+
+/* Aplica borda somente no lado esquerdo para hover e quando está checado */
+.faq label:hover, .faq input[type="checkbox"]:checked + label {
+  border-left: 3px solid #041D5C; /* Bordas somente no lado esquerdo */
+  padding-left: 17px; /* Ajuste no padding para compensar a borda */
+}
+
+.faq input[type="checkbox"]:checked + label .faq-text {
+  opacity: 1; /* Torna o texto visível ao expandir */
+}
+
+/* Remove a barra de rolagem 
+  display: none;
+}
+
+::-webkit-scrollbar {*/
+
+@media (max-width: 768px) {
+  .faq-heading {
+    font-size: 12px;
+    padding-right: 40px;
+    padding-left:10px;
+    text-indent: 0px;
+  }
+
+  .faq-text {
+    font-size: 12px;
+    padding-right: 50px;
+  }
+  
+  .faq input[type='checkbox']:not(:checked) + label {
+  height: 60px;/* Altura quando não checado */
+}
+}
+#showMore, #showLess {
+    display: inline-block;
+    margin: 20px auto;
+    background-color: transparent;
+    color: #041D5C;
+    font-weight: 500;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    padding-right: 40px; /* Ajuste para não sobrepor o texto ao ícone */
+}
+
+/* Opcional: Adiciona um efeito ao passar o mouse para indicar interatividade */
+#showMore:hover, #showLess:hover {
+    color: #4FBB9D;
+    transition: background-color 0.3s;
+}
+{% endblock Style %}
+{% block content %}
+<div class='faq'>
+    <input id='faq-a' type='checkbox'>
+    <label for='faq-a'>
+      <p class="faq-heading">What is PassVolt?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">PassVolt is a secure password manager designed to help you store, generate, and manage your passwords securely.</p>
+    </label>
+    <input id='faq-b' type='checkbox'>
+    <label for='faq-b'>
+      <p class="faq-heading">How does PassVolt keep my passwords safe?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">PassVolt uses advanced encryption techniques to safeguard your passwords and sensitive data. It employs industry-standard encryption algorithms to ensure that only you can access your passwords.</p>
+    </label>
+    <input id='faq-c' type='checkbox'>
+    <label for='faq-c'>
+      <p class="faq-heading">Is PassVolt easy to use?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">Yes, PassVolt is designed with user-friendliness in mind. It offers an intuitive interface that makes it easy to store, organize, and retrieve your passwords.</p>
+    </label>
+    <input id='faq-d' type='checkbox'>
+    <label for='faq-d'>
+      <p class="faq-heading">Can PassVolt generate strong passwords for me?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">Absolutely! PassVolt includes a built-in password generator that can create strong, unique passwords for you, helping you enhance your online security.</p>
+    </label>
+    <input id='faq-e' type='checkbox'>
+    <label for='faq-e'>
+      <p class="faq-heading">Can I access my passwords across multiple devices with PassVolt?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">Yes, PassVolt offers synchronization capabilities, allowing you to access your passwords from any device with an internet connection. Whether you're using your computer, smartphone, or tablet, your passwords will be readily available.</p>
+    </label>
+    <input id='faq-f' type='checkbox'>
+    <label for='faq-f'>
+      <p class="faq-heading">What happens if I forget my PassVolt master password?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">Your master password is crucial for accessing your PassVolt account. If you forget it, PassVolt's encryption ensures that your passwords cannot be retrieved. Therefore, it's essential to choose a memorable master password and consider using additional account recovery options provided by PassVolt.</p>
+    </label>
+    <input id='faq-g' type='checkbox'>
+    <label for='faq-g'>
+      <p class="faq-heading">Is PassVolt compatible with various browsers and platforms?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">Yes, PassVolt is designed to be compatible with popular web browsers such as Chrome, Firefox, Safari, and Edge, as well as multiple operating systems including Windows, macOS, iOS, and Android.</p>
+    </label>
+    <input id='faq-h' type='checkbox'>
+    <label for='faq-h'>
+      <p class="faq-heading">Is PassVolt's data stored securely on its servers?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">PassVolt employs strict security measures to protect your data. All information stored on PassVolt servers is encrypted, and the company adheres to industry best practices for data security and privacy.</p>
+    </label>
+    <input id='faq-i' type='checkbox'>
+    <label for='faq-i'>
+      <p class="faq-heading">Can I share passwords securely with others using PassVolt?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">PassVolt offers secure password sharing features, allowing you to share passwords with trusted individuals without compromising security. You can control access levels and revoke sharing permissions at any time.</p>
+    </label>
+    <input id='faq-j' type='checkbox'>
+    <label for='faq-j'>
+      <p class="faq-heading">Is PassVolt's customer support available for assistance?</p>
+      <div class='faq-arrow'></div>
+        <p class="faq-text">Yes, PassVolt provides customer support to assist users with any questions, concerns, or technical issues they may encounter. You can reach out to the support team via email or through the PassVolt website.</p>
+    </label>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('showMore');
+    const showLessBtn = document.getElementById('showLess');
+    const hiddenFaqItems = document.querySelectorAll('.faq-item-hide'); // Seleciona as perguntas ocultas
+
+    // Mostrar mais perguntas
+    showMoreBtn.addEventListener('click', function() {
+        hiddenFaqItems.forEach(item => {
+            item.style.display = 'block'; // Altera para 'block' para exibir
+        });
+        showMoreBtn.style.display = 'none'; // Esconde o botão "Ver mais"
+        showLessBtn.style.display = 'inline'; // Mostra o botão "Ver menos"
+    });
+
+    // Esconder as perguntas
+    showLessBtn.addEventListener('click', function() {
+        hiddenFaqItems.forEach(item => {
+            item.style.display = 'none'; // Esconde novamente
+        });
+        showLessBtn.style.display = 'none'; // Esconde o botão "Ver menos"
+        showMoreBtn.style.display = 'inline'; // Mostra o botão "Ver mais"
+    });
+});
+</script>
+{% endblock content %}

@@ -79,3 +79,7 @@ def update_pwd(request, pk):
         pwd.save()
         return redirect(reverse("login-home"))
     return render(request, "PasswordManager/update_pass.html", {"data": pwd})
+def FAQ(request):
+    return render(request,'PasswordManager\FAQ-logout.html')
+def FAQlogin(request):
+    return render(request,'PasswordManager\FAQlogin.html')

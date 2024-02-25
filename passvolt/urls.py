@@ -20,6 +20,10 @@ from PasswordManager import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index,name="home"),
+    path('FAQ', views.FAQ,name="FAQ"),
+    path('FAQlogin', views.FAQlogin,name="FAQlogin"),
+
+    path('FAQlogin', views.FAQlogin,name="FAQlogin"),
     path('signup', views.signup,name="signup"),
     path('login', views.Ulogin,name="login"),
     path('home', views.after_login,name="login-home"),
