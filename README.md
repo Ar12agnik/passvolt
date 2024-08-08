@@ -25,7 +25,7 @@ PassVolt is a secure and easy-to-use password manager designed to help you manag
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/yourusername/passvolt.git
+    [git clone https://github.com/yourusername/passvolt.git](https://github.com/Ar12agnik/passvolt.git)
     cd passvolt
     ```
 
