@@ -1,0 +1,7 @@
+passvolt/__pycache__/
+
+PasswordManager/__pycache__/
+
+PasswordManager/migrations/__pycache__/
+
+db.sqlite3

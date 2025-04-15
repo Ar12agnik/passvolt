@@ -1,3 +1,5 @@
+from django.http import JsonResponse
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -54,7 +56,7 @@ def add_password(request):
 
 def generate_password_page(request):
     generated_password = generate_password(16)
-    return render(request, "PasswordManager/generate_password.html", {"password": generated_password})
+    return JsonResponse(generated_password,safe=False)
 
 def generate_password(length):
     characters = string.ascii_letters + string.digits + string.punctuation
