@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "PasswordManager",
+    "django_cryptography"
 ]
 
 
@@ -125,3 +126,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 LOGIN_URL="/login"
+
+### encription keys!!
+from dotenv import load_dotenv
+import os
+import string
+
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Fetch a key from the environment
+my_key = os.getenv("ENCRYPT_KEY")
+key= list(my_key)
+chars = ' '+string.punctuation+string.digits+string.ascii_letters

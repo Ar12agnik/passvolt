@@ -145,6 +145,14 @@
           </thead>
         {% for dat in data %}
         <tr>
+          <td>{{ dat.Username }}</td>
+          <td><div class="pwd position-relative">
+  <p id="{{dat.id}}">********</p>
+  <p id="{{dat.id}}-pwd" hidden>{{dat.show}}</p>
+  <i class="bi bi-eye-fill position-absolute end-0 top-50 translate-middle-y me-2 btn btn-light pwd-trigger-btn"></i>
+</div>
+</td>
+          <td>{{ dat.Url }}</td>
           <td class="text-center">
             <div class="d-flex justify-content-center align-items-center gap-2">
               <a href="{% url 'delete_pwd' dat.id %}" title="Delete">
@@ -155,9 +163,6 @@
               </a>
             </div>
           </td>
-          <td>{{ dat.Url }}</td>
-          <td>{{ dat.Username }}</td>
-          <td>{{ dat.Password }}</td>
         </tr>
         {% endfor %}
         </table>
@@ -242,6 +247,19 @@
   </div>
 </div>
 
+<script>
+  $(document).ready(function () {
+    $(".pwd-trigger-btn").click(function (){
+      let star= $(this).siblings()[0]
+      let pwd= $(this).siblings()[1]
+      star.toggleAttribute("hidden")
+      pwd.toggleAttribute("hidden")
+      if (pwd.attributes) {
+        
+      }
+    })
+  });
 
+</script>
 
 {% endblock content %}
